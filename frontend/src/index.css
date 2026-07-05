@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;850;900&display=swap');
+
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-brand-50: #f5f7ff;
+  --color-brand-100: #ebf0ff;
+  --color-brand-200: #d6e0ff;
+  --color-brand-300: #b3c7ff;
+  --color-brand-400: #80a3ff;
+  --color-brand-500: #4d7cff;
+  --color-brand-600: #1a55ff;
+  --color-brand-700: #003be6;
+  --color-brand-800: #002eb3;
+  --color-brand-900: #002080;
+  
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+body {
+  @apply font-sans bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 transition-colors duration-200;
+}
+
+/* Custom Scrollbar styled for dark and light mode glass layouts */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-zinc-200 dark:bg-zinc-800 rounded-full hover:bg-zinc-300 dark:hover:bg-zinc-700 transition-colors;
+}
+
+/* Custom Calendar Indicator styling for Dark and Light Modes */
+input[type="date"] {
+  color-scheme: light;
+}
+
+.dark input[type="date"] {
+  color-scheme: dark;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 4px;
+  transition: background-color 0.2s, filter 0.2s;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.dark input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.8);
+}
+
+.dark input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  filter: invert(1);
+}
